@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Player</title>
+</head>
+<body>
+    <h2>Enter a Spotify Track ID:</h2>
+    <input type="text" id="trackIdInput" placeholder="Enter track ID">
+    <button onclick="playSpotifyTrack()">Play</button>
+
+    <iframe id="spotifyPlayer" style="width: 100%; height: 152px; border: 0;" 
+        allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+
+    <script>
+        function playSpotifyTrack() {
+            var trackId = document.getElementById("trackIdInput").value;
+            if (trackId) {
+                var embedUrl = "https://open.spotify.com/embed/track/" + trackId + "?utm_source=oembed";
+                document.getElementById("spotifyPlayer").src = embedUrl;
+            } else {
+                alert("Please enter a track ID.");
+            }
+        }
+    </script>
+</body>
+</html>
